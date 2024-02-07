@@ -111,14 +111,14 @@ jobs:
       - name: upload mac artifacts
         uses: actions/upload-artifact@master
         with:
-          name: ${{ steps.package-json.outputs.version }}
+          name: ${{ steps.package-json.outputs.version }}-mac
           path: mac-dist
           retention-days: 1
 
       - name: upload win artifacts
         uses: actions/upload-artifact@master
         with:
-          name: ${{ steps.package-json.outputs.version }}
+          name: ${{ steps.package-json.outputs.version }}-win
           path: win-dist
           retention-days: 1
 
@@ -133,7 +133,7 @@ jobs:
 
       - uses: actions/download-artifact@master
         with:
-          name: ${{ steps.package-json.outputs.version }}
+          name: ${{ steps.package-json.outputs.version }}-win
           path: win-dist
 
       - name: Use Node.js
@@ -194,7 +194,7 @@ jobs:
 
       - uses: actions/download-artifact@master
         with:
-          name: ${{ steps.package-json.outputs.version }}
+          name: ${{ steps.package-json.outputs.version }}-mac
           path: mac-dist
 
       
